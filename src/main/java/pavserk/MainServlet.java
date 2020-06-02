@@ -7,8 +7,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.Map;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 @WebServlet(urlPatterns = {"/cool", "/ser/*"})
@@ -23,7 +21,7 @@ public class MainServlet extends HttpServlet {
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.getWriter().write("service start Text =)\n");
         super.service(req, resp);
-        resp.getWriter().write("service end Text =) HEEEEEEEEER!!\n ");
+        resp.getWriter().write("service end Text =) Hi!\n ");
     }
 
     @Override

@@ -22,16 +22,16 @@ public class FileServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         for (Part part : req.getParts()) {
-          if (part.getName().equals("aut-name")){
-              InputStream inputStream = part.getInputStream();
-              InputStreamReader isr = new InputStreamReader(inputStream);
-              String authorName = new BufferedReader(isr)
-                      .lines()
-                      .collect(Collectors.joining("\n"));
-              log(authorName);
-          }else{
-              part.write(UUID.randomUUID().toString() + part.getSubmittedFileName());
-          }
+            if (part.getName().equals("aut-name")) {
+                InputStream inputStream = part.getInputStream();
+                InputStreamReader isr = new InputStreamReader(inputStream);
+                String authorName = new BufferedReader(isr)
+                        .lines()
+                        .collect(Collectors.joining("\n"));
+                log(authorName);
+            } else {
+                part.write(UUID.randomUUID().toString() + part.getSubmittedFileName());
+            }
         }
         resp.sendRedirect("/my-app/cool-servlet");
     }
